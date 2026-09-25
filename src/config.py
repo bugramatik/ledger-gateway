@@ -189,6 +189,13 @@ class Config:
     RATE_LIMIT_SECONDS: int = int(os.getenv("RATE_LIMIT_SECONDS", "5"))
     API_TOKEN: str = os.getenv("API_TOKEN", "")  # Bearer token for API auth (empty = no auth)
 
+    # Cost-aware router
+    LEDGER_PATH: str = os.getenv("LEDGER_PATH", "logs/ledger.jsonl")
+    ROUTER_DEFAULT_TIER: str = os.getenv("ROUTER_DEFAULT_TIER", "small").lower()
+    ROUTER_FALLBACK_ENABLED: bool = (
+        os.getenv("ROUTER_FALLBACK_ENABLED", "true").lower() == "true"
+    )
+
     # VNC
     VNC_PASSWORD: str = os.getenv("VNC_PASSWORD", "catgpt")
 
